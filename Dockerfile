@@ -11,6 +11,7 @@ ADD wpad.dat /var/www/html/wpad.dat
 ADD wpad.dat /var/www/html/wpat.dat
 ADD block.html /var/www/html/block.html
 
+RUN mkdir -p /etc/squid3/
 RUN echo "redirect_program /usr/bin/squidGuard -c /etc/squidguard/squidGuard.conf" >> /etc/squid3/squid.conf
 
 RUN rm /etc/squidguard/squidGuard.conf
