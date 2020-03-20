@@ -2,7 +2,7 @@ FROM sameersbn/squid:latest
 MAINTAINER derk@muenchhausen.de
 
 RUN mkdir -p /etc/squid3
-RUN ln -s /etc/squid /etc/squid3
+RUN ln -s /etc/squid/ /etc/squid3
 
 RUN apt-get update \
  && apt-get install -y squidguard \ 
