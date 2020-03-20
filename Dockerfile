@@ -1,6 +1,8 @@
 FROM sameersbn/squid:latest
 MAINTAINER derk@muenchhausen.de
 
+RUN ln -s /etc/squid/ /etc/squid3/
+
 RUN apt-get update \
  && apt-get install -y squidguard \ 
  && apt-get install -y apache2 \
@@ -14,7 +16,6 @@ ADD block.html /var/www/html/block.html
 
 RUN echo "redirect_program /usr/bin/squidGuard -c /etc/squidguard/squidGuard.conf" >> /etc/squid/squid.conf
 RUN mkdir -p /etc/squid3
-RUN ln -s /etc/squid/ /etc/squid3/
 
 RUN rm /etc/squidguard/squidGuard.conf
 ADD sample-config-blacklist /sample-config-blacklist
